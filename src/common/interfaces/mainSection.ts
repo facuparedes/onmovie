@@ -20,7 +20,7 @@ export interface FeaturedMovieInterface {
     releaseDate: string;
     voteAverage: number;
     duration: number;
-    rateCertification: Array<RateCertificationInterface>;
+    rateCertification: Array<RateCertificationInterface> | null;
   };
 }
 

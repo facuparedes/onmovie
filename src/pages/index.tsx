@@ -45,10 +45,10 @@ export const getServerSideProps: GetServerSideProps = async () => {
             posterPath: data.poster_path,
             title: data.title,
             description: data.overview,
-            releaseDate: data.release_date,
-            voteAverage: data.vote_average.toFixed(1),
-            duration: data.runtime,
-            rateCertification: data.releases.countries,
+            releaseDate: data?.release_date ?? null,
+            voteAverage: data?.vote_average.toFixed(1) ?? null,
+            duration: data?.runtime ?? null,
+            rateCertification: data?.releases?.countries ?? null,
           },
         })
       )

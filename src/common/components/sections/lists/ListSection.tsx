@@ -1,7 +1,6 @@
 import Carousel from "../../carousel/Carousel";
 
 export default function ListSection({ trendingMovies, discoverMovies, topRatedMovies }) {
-  console.log(trendingMovies);
   return (
     <section>
       {!trendingMovies?.errorMsg && trendingMovies.length && <Carousel title="Trending" movies={trendingMovies} padding />}

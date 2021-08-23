@@ -6,7 +6,7 @@ import LoadingSection from "./LoadingSection";
 
 export default function MainSection({ featuredMovie }: { featuredMovie: FeaturedMovieInterface }) {
   return (
-    <section className="h-screen">
+    <section className="w-screen h-screen">
       <AnimatePresence>
         {(() => {
           if (!featuredMovie?.errorMsg && !featuredMovie?.data) return <LoadingSection />;
