@@ -34,9 +34,19 @@ Note: If you are running on Windows and you have issues with `fsevents`, run ins
 
 If you wanted to run this site in production, you should install modules then build the site with npm run build and run it with npm start:
 
+#### Linux & MacOS
+
 ```sh
 npm install
 npm run build
+npm start
+```
+
+#### Windows
+
+```sh
+npm install
+npm run buildWindows
 npm start
 ```
 
