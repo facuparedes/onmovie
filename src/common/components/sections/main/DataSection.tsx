@@ -1,14 +1,14 @@
+import Image from "next/image";
 import { ArrowUpRight, Calendar, Clock, Eye, Star } from "react-feather";
 import { FeaturedMovieInterface } from "../../../interfaces/mainSection";
-import config from "../../../utils/config";
-import theme from "../../../utils/theme";
 import MovieFact from "../../movieFact/MovieFact";
 import TransitionComponent from "../../transitionComponent/TransitionComponent";
+import theme from "../../../utils/theme";
 
 export default function DataSection(data: FeaturedMovieInterface["data"]) {
   return (
-    <TransitionComponent>
-      <img src={`${config.TMDB_APIIMAGEURL}${data.backdropPath}`} className="w-full h-screen object-cover object-center pointer-events-none absolute" />
+    <TransitionComponent className="w-screen h-screen">
+      <Image src={data.backdropPath} className="w-full h-screen object-cover object-center pointer-events-none absolute" layout="fill" loading="eager" />
       <div className="w-full h-screen bg-custom-background bg-opacity-40 absolute" />
       <div className="flex flex-col justify-end w-full h-screen py-10 px-4 md:px-16 absolute">
         <span className="text-custom-first font-poppins font-bold text-2xl sm:text-4xl lg:text-7xl line-clamp-1 mb-4">{data.title}</span>
@@ -37,8 +37,6 @@ export default function DataSection(data: FeaturedMovieInterface["data"]) {
                   WATCH
                   <ArrowUpRight color={theme.colors.custom.first} className="ml-4 inline" />
                 </button>
-                {/* <div className="flex">
-                </div> */}
               </div>
             </div>
           </div>

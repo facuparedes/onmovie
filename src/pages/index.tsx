@@ -27,7 +27,7 @@ const axiosFetch = (endpoint: string) =>
   axios
     .get(`${config.TMDB_APIURL}/${endpoint}?api_key=${config.TMDB_APIKEY}&language=en-US`)
     .then((res) => res?.data?.results)
-    .then((data) => data.map((item) => ({ id: item.id, backdropPath: item.backdrop_path, title: item.title })))
+    .then((data) => data.map((item) => ({ id: item.id, backdropPath: `${config.TMDB_APIIMAGEURL}${item.backdrop_path}`, title: item.title })))
     .catch((err) => ({ errorMsg: `${err?.message}. ${err?.code ?? ""}` }));
 
 export const getServerSideProps: GetServerSideProps = async () => {
@@ -41,8 +41,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
         (data): FeaturedMovieInterface => ({
           data: {
             id: data.id,
-            backdropPath: data.backdrop_path,
-            posterPath: data.poster_path,
+            backdropPath: `${config.TMDB_APIIMAGEURL}${data.backdrop_path}`,
+            posterPath: `${config.TMDB_APIIMAGEURL}${data.poster_path}`,
             title: data.title,
             description: data.overview,
             releaseDate: data?.release_date ?? null,
