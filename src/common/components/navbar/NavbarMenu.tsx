@@ -20,18 +20,13 @@ export default function NavbarMenu({ links }: { links: Array<NavbarLinkInterface
           <motion.div
             onHoverStart={() => setNavIndex({ ...navIndex, hovering: i })}
             onHoverEnd={() => setNavIndex({ ...navIndex, hovering: navIndex.actual })}
-            className="flex flex-col items-center px-3 py-1 mx-8"
+            className="flex flex-col items-center px-3 py-1 sm:mx-8"
             key={`${link.url}-ID${i}`}
           >
             <Link href={link.url}>
               <a className="text-custom-first font-poppins">{link.name}</a>
             </Link>
-            {navIndex.hovering === i && (
-              <motion.div
-                layoutId="navbarUnderlineAnim"
-                className="w-2/3 h-0.5 border-1 border-custom-accent shadow-navItem rounded-lg"
-              />
-            )}
+            {navIndex.hovering === i && <motion.div layoutId="navbarUnderlineAnim" className="w-2/3 h-0.5 border-1 border-custom-accent shadow-navItem rounded-lg" />}
           </motion.div>
         ))}
       </AnimateSharedLayout>

@@ -11,7 +11,7 @@ export default function Carousel({ title, movies, padding = false }) {
 
   return (
     <div className={`flex flex-col ${padding ? "pt-32" : ""} pb-32 px-4 md:px-24 overflow-x-hidden`}>
-      <span className="text-custom-first font-poppins font-medium text-xl lg:text-3xl line-clamp-1 mb-4">{title}</span>
+      <span className="text-custom-first font-poppins font-medium text-2xl sm:text-3xl line-clamp-1 mb-4">{title}</span>
       <motion.div ref={ref} className="flex" drag="x" dragConstraints={{ left: -xOffset, right: 0 }}>
         {movies.map((el) => (
           <motion.div key={el.id} variants={carouselVariant} whileHover="whileHover" className="flex-shrink-0 w-72 h-40 bg-custom-first bg-opacity-20 mr-2 rounded-xl overflow-hidden relative">

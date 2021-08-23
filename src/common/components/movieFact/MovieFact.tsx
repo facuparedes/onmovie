@@ -5,7 +5,7 @@ export default function MovieFact({
   iconColor,
   text,
   textColor = "text-custom-first",
-  customClassName = "font-poppins font-normal text-xl ml-4",
+  customClassName = "font-poppins font-normal text-base sm:text-xl ml-4",
   bottomPadding = true,
 }: MovieFactInterface) {
   return (

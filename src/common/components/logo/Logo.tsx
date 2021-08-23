@@ -6,7 +6,7 @@ export default function Logo() {
   return (
     <motion.div initial="withoutHover" whileHover="withHover">
       <Link href="/">
-        <a className="font-bold text-2xl font-poppins">
+        <a className="font-bold text-base sm:text-2xl font-poppins">
           <motion.span variants={underlineNavVariant} className="text-custom-accent">
             ON
           </motion.span>
