@@ -25,7 +25,7 @@ export default function Home({ featuredMovie, trendingMovies, discoverMovies, to
 
 const axiosFetch = async (endpoint: string) =>
   await axios
-    .get(`${config.VERCEL_URL}/api/${endpoint}`)
+    .get(`${config.URL}/api/${endpoint}`)
     .then((res) => res.data)
     .catch((err) => ({ errorMsg: `${err?.message}. ${err?.code ?? ""}` }));
 

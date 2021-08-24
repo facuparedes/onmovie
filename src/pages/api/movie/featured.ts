@@ -9,7 +9,7 @@ export default async function handler(_, res: NextApiResponse) {
   const data = await axios
     .get(`${config.TMDB_APIURL}/movie/popular?api_key=${config.TMDB_APIKEY}&language=en-US`)
     .then((res) => res?.data?.results[getRandom(res.data.results.length)]?.id)
-    .then((id) => axios.get(`${config.VERCEL_URL}/api/movie/${id}`))
+    .then((id) => axios.get(`${config.URL}/api/movie/${id}`))
     .then((res) => parseMovieData(res?.data))
     .catch((err) => ({ errorMsg: `${err?.message}. ${err?.code ?? ""}` }));
 
