@@ -23,39 +23,18 @@ export default function Home({ featuredMovie, trendingMovies, discoverMovies, to
   );
 }
 
-const axiosFetch = (endpoint: string) =>
-  axios
-    .get(`${config.TMDB_APIURL}/${endpoint}?api_key=${config.TMDB_APIKEY}&language=en-US`)
-    .then((res) => res?.data?.results)
-    .then((data) => data.map((item) => ({ id: item.id, backdropPath: `${config.TMDB_APIIMAGEURL}${item.backdrop_path}`, title: item.title })))
+const axiosFetch = async (endpoint: string) =>
+  await axios
+    .get(`${config.VERCEL_URL}/api/${endpoint}`)
+    .then((res) => res.data)
     .catch((err) => ({ errorMsg: `${err?.message}. ${err?.code ?? ""}` }));
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const [featuredMovie, trendingMovies, discoverMovies, topRatedMovies] = await Promise.all([
-    axios
-      .get(`${config.TMDB_APIURL}/movie/popular?api_key=${config.TMDB_APIKEY}&language=en-US`)
-      .then((res) => res?.data?.results[0]?.id)
-      .then((id) => axios.get(`${config.TMDB_APIURL}/movie/${id}?api_key=${config.TMDB_APIKEY}&language=en-US&append_to_response=releases`))
-      .then((res) => res?.data)
-      .then(
-        (data): FeaturedMovieInterface => ({
-          data: {
-            id: data.id,
-            backdropPath: `${config.TMDB_APIIMAGEURL}${data.backdrop_path}`,
-            posterPath: `${config.TMDB_APIIMAGEURL}${data.poster_path}`,
-            title: data.title,
-            description: data.overview,
-            releaseDate: data?.release_date ?? null,
-            voteAverage: data?.vote_average.toFixed(1) ?? null,
-            duration: data?.runtime ?? null,
-            rateCertification: data?.releases?.countries ?? null,
-          },
-        })
-      )
-      .catch((err) => ({ errorMsg: `${err?.message}. ${err?.code ?? ""}` })),
-    axiosFetch("trending/movie/week"),
-    axiosFetch("discover/movie"),
-    axiosFetch("movie/top_rated"),
+    axiosFetch("movie/featured"),
+    axiosFetch("movie/trending"),
+    axiosFetch("movie/discover"),
+    axiosFetch("movie/topRated"),
   ]);
 
   return {

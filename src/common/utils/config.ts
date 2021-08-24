@@ -3,4 +3,5 @@ export default {
   TMDB_APIIMAGEURL: process.env.TMDB_APIIMAGEURL || "127.0.0.1",
   TMDB_APIURL: process.env.TMDB_APIURL || "127.0.0.1",
   TMDB_APIKEY: process.env.TMDB_APIKEY || "null",
+  VERCEL_URL: process.env.VERCEL_URL || "http://localhost:3000",
 };

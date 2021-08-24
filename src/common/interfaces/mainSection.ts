@@ -18,7 +18,7 @@ export interface FeaturedMovieInterface {
     title: string;
     description: string;
     releaseDate: string;
-    voteAverage: number;
+    voteAverage: string;
     duration: number;
     rateCertification: Array<RateCertificationInterface> | null;
   };
