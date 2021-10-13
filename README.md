@@ -54,7 +54,7 @@ Note: You should run npm run build again any time you make changes to the site.
 
 ## Contributing
 
-Pickit is an open-source project that appreciates all community involvement. To contribute to the project, follow the [contribute guide](/CONTRIBUTING.md).
+ONMOVIE is an open-source project that appreciates all community involvement. To contribute to the project, follow the [contribute guide](/CONTRIBUTING.md).
 
 ## Todo
 
